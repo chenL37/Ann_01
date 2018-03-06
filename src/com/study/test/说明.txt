@@ -1,0 +1,58 @@
+
+注解分类:
+	源码注解:
+		注解只在源码中存在,编译成.class文件就不存在了
+	
+	编译时注解:
+		注解在孕妈和.class文件中都存在
+		(比如JDK的自带注解)
+		
+	运行时注解:
+		在运行阶段换气作用,甚至会影响程序运行逻辑的注解
+		(比如Spring的各种注解)
+		
+	元注解:注解中使用的注解
+	
+	
+	
+	========================================
+	自定义注解的语法要求:
+
+	@interface:	定义注解
+
+	成员变量以	无参无异常	的方式声明
+	成员变量的类型:(原始类型)+string ,class,Annotation,Enumeration
+	(default)可以指定默认值
+	当注解只有一个成员变量是,则成员变量名必须为value()
+	
+		
+	
+	
+	
+	元注解
+	@Target({ElementType.Method})	:
+		注解的作用域(
+			Constructor	构造方法声明;
+			Field	字段的声明;
+			Local_Variable	局部变量;
+			Method	方法声明;
+			Package	包声明;
+			Parameter	参数声明;
+			Type	类接口;
+		)
+		
+	@Retention(Retentionpolicy.Runtime)
+		生命周期(
+			runtime 可以使用反射读取;
+			source;
+			class;
+		)
+	
+	@Inherited	允许子注解继承
+	
+	@Documented	生成javadoc时生成注解信息
+	
+	
+	使用自定义注解
+	
+	解析注解
